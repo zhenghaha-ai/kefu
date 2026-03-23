@@ -1,0 +1,19 @@
+{
+  "name": "auto-mail-reply-system",
+  "version": "0.1.0",
+  "description": "Web版邮件AI自动回复工具",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node src/index.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "imapflow": "^1.0.162",
+    "mailparser": "^3.7.1",
+    "nodemailer": "^6.9.9",
+    "openai": "^4.28.0",
+    "cors": "^2.8.5",
+    "uuid": "^9.0.0"
+  }
+}
