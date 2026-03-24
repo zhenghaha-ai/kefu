@@ -8,7 +8,10 @@ function createTransport(emailConfig) {
     auth: {
       user: emailConfig.account,
       pass: emailConfig.authCode
-    }
+    },
+    connectionTimeout: 15000,
+    greetingTimeout: 10000,
+    socketTimeout: 30000
   })
 }
 
