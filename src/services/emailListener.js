@@ -33,7 +33,10 @@ function reset() {
 
 async function pollEmails() {
   const config = configService.read()
-  const { email, ai, rules, run } = config
+  const email = config.email || {}
+  const ai = config.ai || {}
+  const rules = config.rules || {}
+  const run = config.run || {}
 
   if (!email.account || !email.authCode || !email.imapHost) {
     console.warn('[IMAP] 邮箱配置不完整，跳过本次轮询')
