@@ -24,8 +24,8 @@ const form = ref({
   imapPort: 993,
   imapSSL: true,
   smtpHost: '',
-  smtpPort: 465,
-  smtpSSL: true
+  smtpPort: 587,
+  smtpSSL: false
 })
 
 const saving = ref(false)

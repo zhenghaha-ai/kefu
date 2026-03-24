@@ -6,8 +6,8 @@ export const emailPresets = [
     imapPort: 993,
     imapSSL: true,
     smtpHost: 'smtp.qq.com',
-    smtpPort: 465,
-    smtpSSL: true
+    smtpPort: 587,
+    smtpSSL: false
   },
   {
     name: '163邮箱',
@@ -15,8 +15,8 @@ export const emailPresets = [
     imapPort: 993,
     imapSSL: true,
     smtpHost: 'smtp.163.com',
-    smtpPort: 465,
-    smtpSSL: true
+    smtpPort: 587,
+    smtpSSL: false
   },
   {
     name: '126邮箱',
@@ -24,8 +24,8 @@ export const emailPresets = [
     imapPort: 993,
     imapSSL: true,
     smtpHost: 'smtp.126.com',
-    smtpPort: 465,
-    smtpSSL: true
+    smtpPort: 587,
+    smtpSSL: false
   },
   {
     name: 'Gmail',
@@ -33,8 +33,8 @@ export const emailPresets = [
     imapPort: 993,
     imapSSL: true,
     smtpHost: 'smtp.gmail.com',
-    smtpPort: 465,
-    smtpSSL: true
+    smtpPort: 587,
+    smtpSSL: false
   },
   {
     name: 'Outlook/Hotmail',
@@ -51,8 +51,8 @@ export const emailPresets = [
     imapPort: 993,
     imapSSL: true,
     smtpHost: 'smtp.exmail.qq.com',
-    smtpPort: 465,
-    smtpSSL: true
+    smtpPort: 587,
+    smtpSSL: false
   },
   {
     name: '阿里企业邮箱',
@@ -60,7 +60,7 @@ export const emailPresets = [
     imapPort: 993,
     imapSSL: true,
     smtpHost: 'smtp.mxhichina.com',
-    smtpPort: 465,
-    smtpSSL: true
+    smtpPort: 587,
+    smtpSSL: false
   }
 ]
