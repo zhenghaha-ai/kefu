@@ -2,8 +2,20 @@ const fs = require('fs')
 const path = require('path')
 
 const CONFIG_PATH = path.join(__dirname, '../../data/config.json')
+const CONFIG_DIR = path.dirname(CONFIG_PATH)
+
+function ensureConfigFile() {
+  if (!fs.existsSync(CONFIG_DIR)) {
+    fs.mkdirSync(CONFIG_DIR, { recursive: true })
+  }
+
+  if (!fs.existsSync(CONFIG_PATH)) {
+    fs.writeFileSync(CONFIG_PATH, '{}', 'utf-8')
+  }
+}
 
 function read() {
+  ensureConfigFile()
   try {
     return JSON.parse(fs.readFileSync(CONFIG_PATH, 'utf-8'))
   } catch {
@@ -12,6 +24,7 @@ function read() {
 }
 
 function write(data) {
+  ensureConfigFile()
   fs.writeFileSync(CONFIG_PATH, JSON.stringify(data, null, 2), 'utf-8')
 }
 

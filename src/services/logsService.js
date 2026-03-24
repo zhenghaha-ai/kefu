@@ -3,8 +3,20 @@ const path = require('path')
 const { v4: uuidv4 } = require('uuid')
 
 const LOGS_PATH = path.join(__dirname, '../../data/logs.json')
+const LOGS_DIR = path.dirname(LOGS_PATH)
+
+function ensureLogsFile() {
+  if (!fs.existsSync(LOGS_DIR)) {
+    fs.mkdirSync(LOGS_DIR, { recursive: true })
+  }
+
+  if (!fs.existsSync(LOGS_PATH)) {
+    fs.writeFileSync(LOGS_PATH, '[]', 'utf-8')
+  }
+}
 
 function readAll() {
+  ensureLogsFile()
   try {
     return JSON.parse(fs.readFileSync(LOGS_PATH, 'utf-8'))
   } catch {
@@ -13,6 +25,7 @@ function readAll() {
 }
 
 function append(entry) {
+  ensureLogsFile()
   const logs = readAll()
   logs.unshift({
     id: uuidv4(),
@@ -24,6 +37,7 @@ function append(entry) {
 }
 
 function clear() {
+  ensureLogsFile()
   fs.writeFileSync(LOGS_PATH, '[]', 'utf-8')
 }
 
