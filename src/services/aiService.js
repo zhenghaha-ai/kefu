@@ -13,7 +13,7 @@ function createClient() {
   })
 }
 
-async function generateReply({ from, fromName, subject, body, guidelines, restrictions, ai }) {
+async function generateReply({ from, fromName, subject, body, guidelines, restrictions, ai = {} }) {
   const client = createClient()
 
   const systemPrompt = `你是一名专业的邮件客服助手，负责代表公司回复客户邮件。

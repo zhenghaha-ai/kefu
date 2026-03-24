@@ -128,7 +128,7 @@ async function pollEmails() {
           body: textBody.substring(0, 3000),
           guidelines: template.guidelines || '',
           restrictions: template.restrictions || '',
-          ai
+          ai: ai || {}
         })
 
         const replySubject = subject.startsWith('Re:') ? subject : `Re: ${subject}`
