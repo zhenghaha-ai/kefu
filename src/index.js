@@ -9,7 +9,7 @@ const logsRouter = require('./routes/logs')
 const taskManager = require('./services/taskManager')
 
 const app = express()
-const PORT = 3000
+const PORT = process.env.PORT || 3000
 
 app.use(cors())
 app.use(express.json())
@@ -37,8 +37,8 @@ app.get('*', (req, res) => {
   res.sendFile(indexPath)
 })
 
-app.listen(PORT, () => {
-  console.log(`[AutoMailReply] 服务已启动: http://localhost:${PORT}`)
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`[AutoMailReply] 服务已启动: http://0.0.0.0:${PORT}`)
 }).on('error', (err) => {
   if (err.code === 'EADDRINUSE') {
     console.error(`[错误] 端口 ${PORT} 已被占用，请关闭占用该端口的程序后重试`)
