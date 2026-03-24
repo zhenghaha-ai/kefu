@@ -7,7 +7,7 @@ const form = ref({
   retryInterval: 5,
   blacklist: [],
   whitelist: [],
-  duplicateSenderRule: 'first_only'
+  duplicateSenderRule: 'each'
 })
 
 const saving = ref(false)
