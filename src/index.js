@@ -1,6 +1,7 @@
 const express = require('express')
 const path = require('path')
 const cors = require('cors')
+const fs = require('fs')
 
 const configRouter = require('./routes/config')
 const controlRouter = require('./routes/control')
@@ -29,7 +30,11 @@ app.use(express.static(distPath))
 
 // SPA fallback
 app.get('*', (req, res) => {
-  res.sendFile(path.join(distPath, 'index.html'))
+  const indexPath = path.join(distPath, 'index.html')
+  if (!fs.existsSync(indexPath)) {
+    return res.status(503).send('Frontend assets are missing. Run `npm run build` before starting the server.')
+  }
+  res.sendFile(indexPath)
 })
 
 app.listen(PORT, () => {

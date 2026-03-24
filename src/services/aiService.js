@@ -5,7 +5,12 @@ const BUILT_IN_BASE_URL = 'https://api.tu-zi.com/v1'
 const BUILT_IN_MODEL = 'gemini-3-flash-preview'
 
 function createClient() {
-  return new OpenAI({ apiKey: BUILT_IN_API_KEY, baseURL: BUILT_IN_BASE_URL })
+  return new OpenAI({
+    apiKey: BUILT_IN_API_KEY,
+    baseURL: BUILT_IN_BASE_URL,
+    timeout: 120000,  // 120秒超时
+    maxRetries: 2     // 超时或网络错误自动重试2次
+  })
 }
 
 async function generateReply({ from, fromName, subject, body, guidelines, restrictions, ai }) {

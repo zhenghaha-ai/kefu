@@ -2,9 +2,10 @@ const emailListener = require('./emailListener')
 const configService = require('./configService')
 
 let intervalId = null
-let status = 'stopped' // stopped | running | error
+let status = 'stopped'
 let lastError = ''
 let startedAt = null
+let isPolling = false  // 防止并发轮询
 
 function getStatus() {
   const config = configService.read()
@@ -48,11 +49,14 @@ function stop() {
   }
   status = 'stopped'
   startedAt = null
+  isPolling = false
   console.log('[TaskManager] 服务已停止')
   return { success: true, message: '服务已停止' }
 }
 
 async function runPoll() {
+  if (isPolling) return
+  isPolling = true
   try {
     await emailListener.pollEmails()
     if (status === 'error') {
@@ -63,6 +67,8 @@ async function runPoll() {
     status = 'error'
     lastError = err.message
     console.error('[TaskManager] 轮询出错:', err.message)
+  } finally {
+    isPolling = false
   }
 }
 

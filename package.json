@@ -4,6 +4,9 @@
   "description": "Web版邮件AI自动回复工具",
   "main": "src/index.js",
   "scripts": {
+    "build": "npm --prefix frontend install --include=dev && npm --prefix frontend run build",
+    "postinstall": "npm --prefix frontend install --include=dev",
+    "prestart": "npm --prefix frontend run build",
     "start": "node src/index.js",
     "dev": "node src/index.js"
   },
