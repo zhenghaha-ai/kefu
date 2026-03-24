@@ -43,7 +43,7 @@ ${body}`
       { role: 'system', content: systemPrompt },
       { role: 'user', content: userPrompt }
     ],
-    max_tokens: ai.maxTokens || 500,
+    max_tokens: ai.maxTokens || 1500,
     temperature: ai.temperature ?? 0.7
   })
 
