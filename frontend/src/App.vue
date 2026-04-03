@@ -66,6 +66,9 @@ onUnmounted(() => {
 
     <main class="main-content">
       <router-view />
+      <footer class="app-footer">
+        <p>亚声威格 © AI 创新 2026</p>
+      </footer>
     </main>
   </div>
 </template>
@@ -196,6 +199,21 @@ onUnmounted(() => {
   flex: 1;
   overflow-y: auto;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-footer {
+  margin-top: auto;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.app-footer p {
+  font-size: 11px;
+  font-weight: 300;
+  letter-spacing: 3px;
+  color: rgba(107, 114, 128, 0.2);
 }
 
 @keyframes pulse {
