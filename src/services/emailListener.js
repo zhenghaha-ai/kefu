@@ -162,7 +162,7 @@ async function pollEmails() {
           error: sendResult.error || ''
         })
 
-        console.log(`[完成] 已回复: ${fromAddress} - ${subject}`)
+        console.log(`[${sendResult.success ? '完成' : '失败'}] ${sendResult.success ? '已回复' : '回复失败'}: ${fromAddress} - ${subject}${sendResult.error ? ' (' + sendResult.error + ')' : ''}`)
       } catch (err) {
         console.error(`[错误] 处理邮件 uid=${uid} 失败:`, err.message)
       }
