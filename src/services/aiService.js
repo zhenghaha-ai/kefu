@@ -1,7 +1,7 @@
 const OpenAI = require('openai')
 
-const BUILT_IN_API_KEY = 'sk-BZvkkVrX5P8WnDPRKlcr0iXilfQoxfJtFS1bIJhK5JMlqA9m'
-const BUILT_IN_BASE_URL = 'https://api.tu-zi.com/v1'
+const BUILT_IN_API_KEY = process.env.BUILT_IN_API_KEY || ''
+const BUILT_IN_BASE_URL = process.env.BUILT_IN_BASE_URL || 'https://api.openai.com/v1'
 const BUILT_IN_MODEL = 'gemini-3-flash-preview'
 
 function createClient() {
